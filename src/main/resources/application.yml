@@ -1,0 +1,7 @@
+Spring:
+  application:
+    name: firstSever
+  datasource:
+    url: jdbc:mariadb://localhost/board
+    username: root
+    password: green502
