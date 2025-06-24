@@ -10,4 +10,10 @@
 
     </insert>
 
+    <select id="selMemolist">
+    SELECT id, title, content
+        FROM memo
+        ORDER BY id DESC;
+    </select>
+
 </mapper>

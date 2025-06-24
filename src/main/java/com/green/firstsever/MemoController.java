@@ -1,8 +1,10 @@
 package com.green.firstsever;
 
+import com.green.firstsever.model.MemoGetRes;
 import com.green.firstsever.model.MemoPostReq;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController // 빈(Bean)등록, 스프링 컨테이너 객체 생성을 대리로 맡긴다. 요청/응답 담당자
@@ -20,21 +22,17 @@ public class MemoController {
     //    이것도 lombok을 통해 해결한다.
     // 1,2번은 잘 사용하지 않는다.
 
-    @GetMapping("/memo")
-    public String getMemo() {
-        return "Hello Board!";
-    }
-
-    @GetMapping("/memo/{board_id}")
-    public String getMemo(@PathVariable("board_id") int boardId) {
-        System.out.println("BoardId: " + boardId);
-        return "Hello Board! - boardId: " + boardId;
-    }
-
     @PostMapping("/memo")
     public String postMemo(@RequestBody MemoPostReq req){ // @RequestBody는 JSON 데이터를 받을꺼야.\
         System.out.println("MemoPostReq: " + req);
-        return "Post Board!";
+        int result = memoService.insMemo(req);
+        return result == 1 ? "성공" : "실패";
     }
+
+    @GetMapping("/memo")
+    public List<MemoGetRes> getMemo() {
+        return memoService.selMemoList();
+    }
+
 
 }
