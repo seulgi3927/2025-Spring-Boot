@@ -1,10 +1,13 @@
 Spring:
   application:
-    name: firstSever
+    name: firstServer
   datasource:
     url: jdbc:mariadb://localhost/memo
     username: root
     password: green502
+
+# 위에 적힌 주소를 찾아서 마리아 DB로 접속해서
+#  memo 를 찾아서 정보를 업로드한다
 
 mybatis:
   mapper-locations: mappers/**/*.xml

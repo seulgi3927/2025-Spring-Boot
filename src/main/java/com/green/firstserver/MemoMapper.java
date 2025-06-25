@@ -1,7 +1,9 @@
-package com.green.firstsever;
+package com.green.firstserver;
 
-import com.green.firstsever.model.MemoGetRes;
-import com.green.firstsever.model.MemoPostReq;
+import com.green.firstserver.model.MemoGetOneRes;
+import com.green.firstserver.model.MemoGetRes;
+import com.green.firstserver.model.MemoPostReq;
+import com.green.firstserver.model.MemoPutReq;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -11,9 +13,14 @@ import java.util.List;
 
 @Mapper
 public interface MemoMapper {
-    // insert, update, delete 작업은 메소드 만들 때 리턴타입 int
+    //insert, update, delete 작업은 메소드 만들 때 리턴타입 int
     // 메모맵퍼에 적힌 id 이름이랑 같아야한다.
     int insMemo(MemoPostReq req);
-    List<MemoGetRes> selMemolist();
+    List<MemoGetRes> selMemoList();
+    MemoGetOneRes selMemo(int id);
+    int updMemo(MemoPutReq req);
+    int delMemo(int id);
+
 
 }
+

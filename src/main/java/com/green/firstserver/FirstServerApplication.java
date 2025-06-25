@@ -1,13 +1,13 @@
-package com.green.firstsever;
+package com.green.firstserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FirstSeverApplication {
+public class FirstServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FirstSeverApplication.class, args);
+        SpringApplication.run(FirstServerApplication.class, args);
     }
 
 }
